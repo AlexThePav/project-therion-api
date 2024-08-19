@@ -5,7 +5,10 @@ app_path = abspath(dirname(dirname(__file__)))
 
 
 class Settings(BaseSettings):
-    database_url: str = f"sqlite:///{app_path}/database/db/therion.db"
+    database_url: str = (
+        f"sqlite:///{app_path}/database/db/therion.db?"
+        f"check_same_thread=true&timeout=10&mode=ro&nolock=1&uri=true"
+    )
 
 
 settings = Settings()
